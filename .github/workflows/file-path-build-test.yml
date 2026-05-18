@@ -14,7 +14,7 @@ jobs:
       - name: Set PR number
         run: |
           echo "PULL_NO=${{ github.event.pull_request.number || 0 }}" >> "$GITHUB_ENV"
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           path: action
       - id: test_result
