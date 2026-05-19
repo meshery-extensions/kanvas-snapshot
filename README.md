@@ -138,41 +138,40 @@ application_url:
 
 
 <div>&nbsp;</div>
-<h1>Join the Layer5 Community!</h1>
+<h1>Join the Meshery Community!</h1>
 <p style="clear:both;">
-<h2><a name="contributing"></a><a name="community"></a> <a href="https://layer5.io/community">Community</a> and <a href="https://layer5.io/community/handbook">Contributions</a></h2>
-<a href="https://slack.layer5.io"><img src="/.github/readme/images/Layer5-MeshMentors.png" width="150px" /></a>
+<h2><a name="contributing"></a><a name="community"></a> <a href="https://meshery.io/community">Community</a></h2>
+<a href="https://slack.meshery.io"><img src="https://raw.githubusercontent.com/meshery/meshery/master/.github/assets/images/readme/community.png" width="150px" /></a>
 <p> We warmly welcome all contributors! Our projects are community-built and each welcomes open collaboration. As you get started, please review this project's <a href="https://github.com/layer5io/layer5/blob/master/CONTRIBUTING.md">contributing guidelines</a>. Whether you are a user or code contributor and whether you're opening an <a href="/../../issues">issue</a> or a <a href="/../../pulls">pull request</a>, know that any form of your engagement is considered contribution and is appreciated. Contributors are expected to adhere to the <a href="https://github.com/cncf/foundation/blob/master/code-of-conduct.md">CNCF Code of Conduct</a>.
 </p>
 <p>
-  Join us in the <a href="https://discuss.layer5.io">discussion forum</a> and on <a href="https://slack.layer5.io"><img src=".github/readme/images/community.svg" height="16px" align="bottom" /> Slack</a> to learn more about Layer5 and its community! Make sure you see the <a href="https://layer5.io/community/newcomers">newcomer's guide</a> for a tour of resources available to you.
+  Join us in the <a href="https://discuss.meshery.io">discussion forum</a> and on <a href="https://slack.meshery.io">Slack</a> to learn more about Meshery and its community! Make sure you see the <a href="https://meshery.io/community/newcomers">newcomer's guide</a> for a tour of resources available to you.
 </p>
 <p>
 <a href="https://slack.meshery.io">
 
 <picture align="right">
-  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/images/buttons/slack-dark-128.webp"  width="110px" align="right" style="margin-left:10px;margin-top:10px;">
-  <source media="(prefers-color-scheme: light)" srcset=".github/assets/images/buttons/slack-128.webp" width="110px" align="right" style="margin-left:10px;padding-top:5px;">
-  <img alt="Shows an illustrated light mode meshery logo in light color mode and a dark mode meshery logo dark color mode." src=".github/assets/images/buttons/slack-128.webp" width="110px" align="right" style="margin-left:10px;padding-top:13px;">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/meshery/meshery/master/.github/assets/images/readme/slack.svg"  width="110px" align="right" style="margin-left:10px;margin-top:10px;">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/meshery/meshery/master/.github/assets/images/readme/slack.svg" width="110px" align="right" style="margin-left:10px;padding-top:5px;">
+  <img alt="Shows an illustrated light mode meshery logo in light color mode and a dark mode meshery logo dark color mode." src="https://raw.githubusercontent.com/meshery/meshery/master/.github/assets/images/readme/slack.svg" width="110px" align="right" style="margin-left:10px;padding-top:13px;">
 </picture>
 </a>
-<a href="https://layer5.io/community"><img alt="Layer5 Cloud Native Community" src=".github/readme/images/community.svg" style="margin-right:10px;" width="130px" align="left" /></a>
-✔️ <em><strong>Join</strong></em> any or all of the weekly meetings on the <a href="https://meet.layer5.io">community calendar</a>.<br />
-✔️ <em><strong>Watch</strong></em> community <a href="http://youtube.com/Layer5io?sub_confirmation=1">meeting recordings</a>.<br />
-✔️ <em>Fill-in</em> a <a href="https://layer5.io/newcomers">community member form</a> to gain access to community resources.
+<a href="https://meshery.io/community"><img alt="Meshery Cloud Native Community" src=".github/readme/images/community.svg" style="margin-right:10px;" width="130px" align="left" /></a>
+✔️ <em><strong>Join</strong></em> any or all of the weekly meetings on the <a href="https://meet.meshery.io">community calendar</a>.<br />
+✔️ <em><strong>Watch</strong></em> community <a href="http://youtube.com/@mesheryio?sub_confirmation=1">meeting recordings</a>.<br />
+✔️ <em>Fill-in</em> a <a href="https://meshery.io/newcomers">community member form</a> to gain access to community resources.
 <br />
-✔️ <em><strong>Discuss</strong></em> in the <a href="https://discuss.layer5.io">Community Forum</a>.<br />
-✔️ <em><strong>Explore more</strong></em> in the <a href="https://layer5.io/community/handbook">Community Handbook</a>.<br />
+✔️ <em><strong>Discuss</strong></em> in the <a href="https://discuss.meshery.io">Community Forum</a>.<br />
 </p>
-<div align="center"><i>Not sure where to start?</i> Grab an open issue with the <a href="https://github.com/issues?q=is%3Aopen+is%3Aissue+archived%3Afalse+(org%3Alayer5io+OR+org%3Ameshery+OR+org%3Alayer5labs+OR+org%3Aservice-mesh-performance+OR+org%3Aservice-mesh-patterns+OR+org%3Ameshery-extensions)+label%3A%22help+wanted%22">help-wanted label</a>.
+<div align="center"><i>Not sure where to start?</i> Grab an open issue with the <a href="https://github.com/issues?q=is%3Aopen+is%3Aissue+archived%3Afalse+(org%3Ameshery+OR+org%3Aservice-mesh-performance+OR+org%3Aservice-mesh-patterns+OR+org%3Ameshery-extensions)+label%3A%22help+wanted%22">help-wanted label</a>.
 </div>
 <br />
 <ul>
-  <li>Find us on Twitter: <a href="https://twitter.com/layer5">@layer5</a>, <a href="https://twitter.com/mesheryio">@mesheryio</a>, and <a href="https://x.com/kanvas_new">@kanvas_new</a>.</li>
-  <li>Visit us on LinkedIn: <a href="https://www.linkedin.com/company/layer5">Layer5</a>, <a href="https://www.linkedin.com/showcase/meshery/">Meshery</a>, and <a href="https://www.linkedin.com/showcase/service-mesh-performance">Cloud Native Performance</a>.</li>
-  <li>Subscribe on <a href="http://youtube.com/Layer5io?sub_confirmation=1">Youtube</a>.</li>
+  <li>Find us on Twitter: <a href="https://twitter.com/mesheryio">@mesheryio</a></li>
+  <li>Visit us on LinkedIn: <a href="https://www.linkedin.com/showcase/meshery/">Meshery</a> and <a href="https://www.linkedin.com/showcase/service-mesh-performance">Cloud Native Performance</a>.</li>
+  <li>Subscribe on <a href="http://youtube.com/@mesheryio?sub_confirmation=1">Youtube</a>.</li>
 </ul>
 
 ### License
 
-All of Layer5's projects are available as open source under the terms of the [Apache 2.0 License](https://opensource.org/licenses/Apache-2.0).
+All of Meshery's projects are available as open source under the terms of the [Apache 2.0 License](https://opensource.org/licenses/Apache-2.0).
