@@ -1,5 +1,7 @@
 # Kanvas Snapshot
 
+[![support: community](https://img.shields.io/badge/support-community-00b39f)](https://github.com/meshery/meshery/blob/master/GOVERNANCE.md#extensions-githubcommeshery-extensions)
+
 Give your pipelines super powers with Kanvas Snapshot GitHub Actions.
 
 ## Kanvas Snapshot GitHub Action
