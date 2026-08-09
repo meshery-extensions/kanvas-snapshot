@@ -10,7 +10,7 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/') == true
     steps:
       - name: Checkout kanvas-snapshot code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: layer5labs/kanvas-snapshot
           fetch-depth: 1
