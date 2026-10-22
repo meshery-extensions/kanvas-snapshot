@@ -48,7 +48,7 @@ runs:
     - name: ping playground
       id: ping-playground
       run: |
-        echo "IS_PLAYGROUND_RUNNING=$( echo $(./action/playground-ping.sh))" >> "$GITHUB_OUTPUT"
+        echo "IS_PLAYGROUND_RUNNING=$( echo $(${{ github.action_path }}/playground-ping.sh))" >> "$GITHUB_OUTPUT"
       shell: bash
     - run: echo $IS_PLAYGROUND_RUNNING
       shell: bash
@@ -68,24 +68,24 @@ runs:
     - run: echo ${{ steps.ping-playground.outputs.IS_PLAYGROUND_RUNNING }}
       shell: bash
     - run:
-      working-directory: action/cypress-action/
+      working-directory: ${{ github.action_path }}/cypress-action/
       if: ${{ !steps.ping-playground.outputs.IS_PLAYGROUND_RUNNING }}
       shell: bash
     - run: |
-        FILE_PATH=${{ inputs.filePath }} ./action/manifest-merger.sh # creates file in root dir
+        FILE_PATH=${{ inputs.filePath }} ${{ github.action_path }}/manifest-merger.sh # creates file in root dir
         cat "__intermediate_file.yml" # debug
       if: ${{ inputs.filePath }}
       shell: bash
     - run: |
         echo "Uploading using application file"
-        AppId=$(MESHERY_SERVER_BASE_URL="https://playground.meshery.io" UPLOAD_TYPE="${{inputs.application_type}}" MESHERY_TOKEN=${{ inputs.mesheryToken }}  ./action/uploadApplicationFile.sh)
+        AppId=$(MESHERY_SERVER_BASE_URL="https://playground.meshery.io" UPLOAD_TYPE="${{inputs.application_type}}" MESHERY_TOKEN=${{ inputs.mesheryToken }}  ${{ github.action_path }}/uploadApplicationFile.sh)
         AppId=$(echo "$AppId" | sed 's/"//g')
         echo "APPLICATION_ID=$AppId" >> $GITHUB_ENV
       if: ${{ inputs.filePath && !inputs.designID }}
       shell: bash
     - run: |
         echo "Uploading using application url"
-        AppId=$(MESHERY_SERVER_BASE_URL="https://playground.meshery.io" UPLOAD_TYPE="${{inputs.application_type}}" MESHERY_TOKEN=${{ inputs.mesheryToken }} UPLOAD_URL=${{ inputs.application_url }}  ./action/uploadApplicationUrl.sh)
+        AppId=$(MESHERY_SERVER_BASE_URL="https://playground.meshery.io" UPLOAD_TYPE="${{inputs.application_type}}" MESHERY_TOKEN=${{ inputs.mesheryToken }} UPLOAD_URL=${{ inputs.application_url }}  ${{ github.action_path }}/uploadApplicationUrl.sh)
         AppId=$(echo "$AppId" | sed 's/"//g')
         echo "APPLICATION_ID=$AppId" >> $GITHUB_ENV
       if: ${{ inputs.application_url && !inputs.designID }}
@@ -101,7 +101,7 @@ runs:
     - name: Cypress run
       uses: cypress-io/github-action@v4
       with:
-        working-directory: action/cypress-action
+        working-directory: ${{ github.action_path }}/cypress-action
         spec: cypress/e2e/e2e/**/*
         browser: chrome
         # record: true
@@ -124,7 +124,7 @@ runs:
       uses: actions/upload-artifact@v4
       with:
         name: meshery-log
-        path: action/log.txt
+        path: ${{ github.action_path }}/log.txt
 
     - name: Upload log1.txt
       if: always()
@@ -138,17 +138,17 @@ runs:
       uses: actions/upload-artifact@v4
       with:
         name: cypress-video
-        path: action/cypress-action/cypress/videos
+        path: ${{ github.action_path }}/cypress-action/cypress/videos
     - name: Upload Cypress artifacts
       if: always()
       uses: actions/upload-artifact@v4
       with:
         name: cypress-screenshots
-        path: action/cypress-action/cypress/screenshots
+        path: ${{ github.action_path }}/cypress-action/cypress/screenshots
     - run: node --version
       shell: bash
     - run: npm ci
-      working-directory: action/node-file-upload
+      working-directory: ${{ github.action_path }}/node-file-upload
       shell: bash
     - id: outputurl
       run: |
@@ -163,12 +163,12 @@ runs:
         else
             echo "RESOURCE_URL=false" >> $GITHUB_ENV
         fi
-      working-directory: action/
+      working-directory: ${{ github.action_path }}
       shell: bash
     - name: Send Snapshot Email
       if: ${{ inputs.email && inputs.assetLocation }}
       run: |
-        MESHERY_CLOUD_API_URL="https://cloud.layer5.io" MESHERY_TOKEN="${{ inputs.mesheryToken }}" EMAIL="${{ inputs.email }}" IMAGE_URI="${{ inputs.assetLocation }}" bash ./action/sendSnapshotEmail.sh
+        MESHERY_CLOUD_API_URL="https://cloud.layer5.io" MESHERY_TOKEN="${{ inputs.mesheryToken }}" EMAIL="${{ inputs.email }}" IMAGE_URI="${{ inputs.assetLocation }}" bash ${{ github.action_path }}/sendSnapshotEmail.sh
       shell: bash  
     - name: Comment Success Status
       if: ${{ success() && inputs.skipComment == 'false' && inputs.prNumber != '0' && env.RESOURCE_URL != false }}
