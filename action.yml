@@ -67,10 +67,7 @@ runs:
         cluster_name: "kind-cluster"
     - run: echo ${{ steps.ping-playground.outputs.IS_PLAYGROUND_RUNNING }}
       shell: bash
-    - run:
-      working-directory: action/cypress-action/
-      if: ${{ !steps.ping-playground.outputs.IS_PLAYGROUND_RUNNING }}
-      shell: bash
+
     - run: |
         FILE_PATH=${{ inputs.filePath }} ./action/manifest-merger.sh # creates file in root dir
         cat "__intermediate_file.yml" # debug
@@ -98,19 +95,18 @@ runs:
       shell: bash
     - run: echo $APPLICATION_ID && echo ${{env.APPLICATION_ID}}
       shell: bash
-    - name: Cypress run
-      uses: cypress-io/github-action@v4
-      with:
-        working-directory: action/cypress-action
-        spec: cypress/e2e/e2e/**/*
-        browser: chrome
-        # record: true
+    - name: Install Playwright browsers
+      run: |
+        npx playwright install --with-deps chromium
+        mkdir -p cypress/screenshots
+      working-directory: action/playwright-action
+      shell: bash
+    - name: Playwright run
+      run: CYPRESS_token="${{ inputs.mesheryToken }}" CYPRESS_releasetag="${{env.tag}}" CYPRESS_applicationId="${{ env.APPLICATION_ID }}" npx playwright test tests/loadDesign.spec.js
+      working-directory: action/playwright-action
+      shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.githubToken }}
-        CYPRESS_token: ${{ inputs.mesheryToken }}
-        CYPRESS_releasetag: ${{env.tag}}
-        CYPRESS_applicationId: ${{ env.APPLICATION_ID }}
-        # CYPRESS_RECORD_KEY: ${{ inputs.cypressRecordKey }}
     - run: ls
       shell: bash
     - run: tree . -L 2me
@@ -133,18 +129,18 @@ runs:
         name: meshery-log1
         path: log.txt
     
-    - name: Upload Cypress artifacts
+    - name: Upload Playwright test results
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: cypress-video
-        path: action/cypress-action/cypress/videos
-    - name: Upload Cypress artifacts
+        name: playwright-test-results
+        path: action/playwright-action/test-results
+    - name: Upload Playwright screenshots
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: cypress-screenshots
-        path: action/cypress-action/cypress/screenshots
+        name: playwright-screenshots
+        path: action/playwright-action/cypress/screenshots
     - run: node --version
       shell: bash
     - run: npm ci
